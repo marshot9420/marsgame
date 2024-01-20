@@ -19,8 +19,12 @@ class Hero {
     }
 
     if (key.keyDown["attack"]) {
-      this.element.classList.add("attack");
-      new Bullet();
+      if (!bulletComponentProps.launch) {
+        this.element.classList.add("attack");
+        bulletComponentProps.array.push(new Bullet());
+
+        bulletComponentProps.launch = true;
+      }
     }
 
     if (!key.keyDown["left"] && !key.keyDown["right"]) {
@@ -29,6 +33,7 @@ class Hero {
 
     if (!key.keyDown["attack"]) {
       this.element.classList.remove("attack");
+      bulletComponentProps.launch = false;
     }
 
     this.element.parentNode.style.transform = `translateX(${this.moveX}px)`;
@@ -58,16 +63,29 @@ class Bullet {
   constructor() {
     this.parentNode = document.querySelector(".game");
     this.element = document.createElement("div");
+
     this.element.className = "bullet";
+
     this.heroPositionX = 0;
     this.heroPositionY = 0;
+
+    this.speed = 30;
+    this.distance = 0;
+
     this.init();
   }
   init() {
     this.heroPositionX = hero.position().left + hero.heroSize().width / 2;
     this.heroPositionY = hero.position().bottom - hero.heroSize().height / 2;
 
+    this.distance = this.heroPositionX;
+
     this.element.style.transform = `translate(${this.heroPositionX}px, ${this.heroPositionY}px)`;
     this.parentNode.appendChild(this.element);
+  }
+  moveBullet() {
+    console.log(this.distance);
+    this.distance += this.speed;
+    this.element.style.transform = `translate(${this.distance}px, ${this.heroPositionY}px)`;
   }
 }
