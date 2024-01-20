@@ -167,9 +167,11 @@ table {
   background-color: #000;
 }
 .app .game .hero-box {
+  position: fixed;
+  left: 0;
+  bottom: 0;
   height: 458px;
   width: 377px;
-  background-color: red;
 }
 .app .game .hero-box .hero {
   height: 100%;

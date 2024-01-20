@@ -1,16 +1,24 @@
 class Hero {
   constructor(element) {
     this.element = document.querySelector(element);
+    this.moveX = 0;
+    this.speed = 16;
   }
 
   keyMotion() {
     if (key.keyDown["left"]) {
       this.element.classList.add("run");
       this.element.classList.add("flip");
+
+      this.moveX = this.moveX - this.speed;
     } else if (key.keyDown["right"]) {
       this.element.classList.add("run");
       this.element.classList.remove("flip");
+
+      this.moveX = this.moveX + this.speed;
     }
+
+    console.log(this.moveX);
 
     if (key.keyDown["attack"]) {
       this.element.classList.add("attack");
@@ -23,5 +31,7 @@ class Hero {
     if (!key.keyDown["attack"]) {
       this.element.classList.remove("attack");
     }
+
+    this.element.parentNode.style.transform = `translateX(${this.moveX}px)`;
   }
 }

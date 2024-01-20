@@ -43,10 +43,11 @@
 
     background-color: #000;
     .hero-box {
+      position: fixed;
+      left: 0;
+      bottom: 0;
       height: 458px;
       width: 377px;
-
-      background-color: red;
 
       .hero {
         height: 100%;
