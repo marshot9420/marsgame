@@ -1,0 +1,194 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+@keyframes hero_idle {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: -3770px;
+  }
+}
+@keyframes hero_run {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: -3770px;
+  }
+}
+@keyframes hero_attack {
+  from {
+    background-position-x: 0px;
+  }
+  to {
+    background-position-x: -3770px;
+  }
+}
+.app {
+  position: relative;
+  height: 100vh;
+}
+.app .game {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+}
+.app .game .hero-box {
+  height: 458px;
+  width: 377px;
+  background-color: red;
+}
+.app .game .hero-box .hero {
+  height: 100%;
+  background-image: url("../images/ninja_idle.png");
+  background-size: 3770px 458px;
+  animation: hero_idle 0.7s infinite steps(10);
+}
+.app .game .hero-box .hero.flip {
+  transform: rotateY(180deg);
+}
+.app .game .hero-box .hero.run {
+  height: 100%;
+  background-image: url("../images/ninja_run.png");
+  background-size: 3770px 458px;
+  animation: hero_run 0.7s infinite steps(10);
+}
+.app .game .hero-box .hero.attack {
+  height: 100%;
+  background-image: url("../images/ninja_attack.png");
+  background-size: 3770px 458px;
+  animation: hero_attack 0.7s infinite steps(10);
+}/*# sourceMappingURL=style.css.map */
