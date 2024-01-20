@@ -18,8 +18,6 @@ class Hero {
       this.moveX = this.moveX + this.speed;
     }
 
-    console.log(this.moveX);
-
     if (key.keyDown["attack"]) {
       this.element.classList.add("attack");
     }
@@ -33,5 +31,17 @@ class Hero {
     }
 
     this.element.parentNode.style.transform = `translateX(${this.moveX}px)`;
+  }
+
+  position() {
+    return {
+      left: this.element.getBoundingClientRect().left,
+      right: this.element.getBoundingClientRect().right,
+      top: gameProps.screenHeight - this.element.getBoundingClientRect().top,
+      bottom:
+        gameProps.screenHeight -
+        this.element.getBoundingClientRect().top -
+        this.element.getBoundingClientRect().height,
+    };
   }
 }

@@ -7,6 +7,11 @@ const key = {
   },
 };
 
+const gameProps = {
+  screenWidth: window.innerWidth,
+  screenHeight: window.innerHeight,
+};
+
 const renderGame = () => {
   hero.keyMotion();
   window.requestAnimationFrame(renderGame);
