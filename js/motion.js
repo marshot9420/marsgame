@@ -20,6 +20,7 @@ class Hero {
 
     if (key.keyDown["attack"]) {
       this.element.classList.add("attack");
+      new Bullet();
     }
 
     if (!key.keyDown["left"] && !key.keyDown["right"]) {
@@ -43,5 +44,30 @@ class Hero {
         this.element.getBoundingClientRect().top -
         this.element.getBoundingClientRect().height,
     };
+  }
+
+  heroSize() {
+    return {
+      width: this.element.offsetWidth,
+      height: this.element.offsetHeight,
+    };
+  }
+}
+
+class Bullet {
+  constructor() {
+    this.parentNode = document.querySelector(".game");
+    this.element = document.createElement("div");
+    this.element.className = "bullet";
+    this.heroPositionX = 0;
+    this.heroPositionY = 0;
+    this.init();
+  }
+  init() {
+    this.heroPositionX = hero.position().left + hero.heroSize().width / 2;
+    this.heroPositionY = hero.position().bottom - hero.heroSize().height / 2;
+
+    this.element.style.transform = `translate(${this.heroPositionX}px, ${this.heroPositionY}px)`;
+    this.parentNode.appendChild(this.element);
   }
 }

@@ -193,4 +193,15 @@ table {
   background-image: url("../images/ninja_attack.png");
   background-size: 3770px 458px;
   animation: hero_attack 0.7s infinite steps(10);
+}
+.app .game .bullet {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 90;
+  width: 160px;
+  height: 32px;
+  background-image: url("../images/hero_bullet.png");
+  background-size: cover;
+  background-repeat: no-repeat;
 }/*# sourceMappingURL=style.css.map */
